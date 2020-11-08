@@ -9,3 +9,11 @@
 //   console.log(Number(newArray.join('')))
 // }
 // squareDigits(34567)
+
+// ------------------ // return the highest and lowest number
+
+function highAndLow(numbers){
+  numSet = numbers.split(' ').map(Number);
+  console.log(Math.max(...numSet) + ' ' + Math.min(...numSet));
+}
+highAndLow('3 9 45 2 5');
