@@ -37,19 +37,32 @@
 
 // ------------------ // Delete occurrences of an element if it occurs more than n times
 
-deleteNth = (arr, n) => {
-  var counts = {};
-  for (var i = 0; i < arr.length; i++) {
-    var num = arr[i];
-    if (counts[num] === n) {
-      arr.splice(i, 1);
-      i--;
-    } else if (counts[num]) {
-      counts[num] += 1
-    } else {
-      counts[num] = 1
-    }
-  }
-}
+// deleteNth = (arr, n) => {
+//   var counts = {};
+//   for (var i = 0; i < arr.length; i++) {
+//     var num = arr[i];
+//     if (counts[num] === n) {
+//       arr.splice(i, 1);
+//       i--;
+//     } else if (counts[num]) {
+//       counts[num] += 1
+//     } else {
+//       counts[num] = 1
+//     }
+//   }
+// }
 
-deleteNth([1, 2, 3, 1, 1, 2, 2, 3, 3, 2, 4, 5, 1], 3)
+// deleteNth([1, 2, 3, 1, 1, 2, 2, 3, 3, 2, 4, 5, 1], 3)
+
+
+// ------------------ // Find the unique number
+
+function findUniq(arr) {
+  arr.filter((num, index) => {
+    if (num !== arr[index - 1] && num !== arr[index + 1]) {
+      console.log(num);
+    }
+  });
+};
+
+findUniq([ 1, 1, 1, 2, 1, 1 ]);
