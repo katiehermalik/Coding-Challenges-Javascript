@@ -22,14 +22,34 @@
 
 // ------------------ // Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed
 
-function spinWords(str){
-  console.log(str.split(' ').map((current) => {
-    if (current.length >= 5) {
-      return current.split('').reverse().join('')
-    } else {
-      return current
-    };
-  }).join(' '))
-};
+// function spinWords(str){
+//   console.log(str.split(' ').map((current) => {
+//     if (current.length >= 5) {
+//       return current.split('').reverse().join('')
+//     } else {
+//       return current
+//     };
+//   }).join(' '))
+// };
 
-spinWords('This is another test')
+// spinWords('This is another test')
+
+
+// ------------------ // Delete occurrences of an element if it occurs more than n times
+
+deleteNth = (arr, n) => {
+  var counts = {};
+  for (var i = 0; i < arr.length; i++) {
+    var num = arr[i];
+    if (counts[num] === n) {
+      arr.splice(i, 1);
+      i--;
+    } else if (counts[num]) {
+      counts[num] += 1
+    } else {
+      counts[num] = 1
+    }
+  }
+}
+
+deleteNth([1, 2, 3, 1, 1, 2, 2, 3, 3, 2, 4, 5, 1], 3)
