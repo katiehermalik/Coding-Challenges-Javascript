@@ -102,12 +102,25 @@
 
 // ------------------ // returns true if the first argument(string) passed in ends with the 2nd argument (also a string)
 
-function solution(str, ending) {
-  if (ending) {
-    console.log(str.slice(-ending.length) === ending ? true : false)
-  } else {
-    console.log(true);
-  }
+// function solution(str, ending) {
+//   if (ending) {
+//     console.log(str.slice(-ending.length) === ending ? true : false)
+//   } else {
+//     console.log(true);
+//   }
+// }
+
+// solution('abcde', 'cde');
+
+
+// ------------------ // returns whether the number passed in is a prime number or not
+
+function isPrime(num) {
+  if (num < 2) return false;
+  const sqrt = Math.floor(Math.sqrt(num));
+  for (let i = 2; i <= sqrt; i++)
+    if (num % i === 0) return false;
+  return true;
 }
 
-solution('abcde', 'cde');
+console.log(isPrime(27));
