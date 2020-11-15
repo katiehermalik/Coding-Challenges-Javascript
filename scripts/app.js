@@ -57,12 +57,32 @@
 
 // ------------------ // Find the unique number
 
-function findUniq(arr) {
-  arr.filter((num, index) => {
-    if (num !== arr[index - 1] && num !== arr[index + 1]) {
-      console.log(num);
-    }
-  });
-};
+// function findUniq(arr) {
+//   arr.filter((num, index) => {
+//     if (num !== arr[index - 1] && num !== arr[index + 1]) {
+//       console.log(num);
+//     }
+//   });
+// };
 
-findUniq([ 1, 1, 1, 2, 1, 1 ]);
+// findUniq([ 1, 1, 1, 6.5, 1, 1 ]);
+
+
+// ------------------ // Elements in an array that are greater than The Sum all the elements to its right side.
+
+var arrayLeaders = numbers => {
+  leaders = [];
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let sum = numbers.slice(i + 1, numbers.length).reduce((a, b) => a + b);
+    console.log(sum);
+    if (numbers[i] > sum) {
+      leaders.push(numbers[i]);
+    }
+  }
+  if (numbers[numbers.length - 1] > 0) {
+    leaders.push(numbers[numbers.length - 1]);
+  }
+  console.log(leaders);
+}
+
+arrayLeaders([0,-1,-29,3,2])
