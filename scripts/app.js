@@ -90,13 +90,24 @@
 
 // ------------------ // remove everything inside the parentheses as well as the parentheses themselves
 
-function removeParentheses(string) {
-  while (string.includes('(')) {
-    string = string.replace(/\([^\(\)]*\)/, '');
-  } 
-  console.log(string);
+// function removeParentheses(string) {
+//   while (string.includes('(')) {
+//     string = string.replace(/\([^\(\)]*\)/, '');
+//   } 
+//   console.log(string);
+// }
+
+// removeParentheses('hello exam(ple (words(more words) here) some)thing');
+
+
+// ------------------ // returns true if the first argument(string) passed in ends with the 2nd argument (also a string)
+
+function solution(str, ending) {
+  if (ending) {
+    console.log(str.slice(-ending.length) === ending ? true : false)
+  } else {
+    console.log(true);
+  }
 }
 
-removeParentheses('hello exam(ple (words(more words) here) some)thing');
-
-
+solution('abcde', 'cde');
