@@ -70,19 +70,33 @@
 
 // ------------------ // Elements in an array that are greater than The Sum all the elements to its right side.
 
-var arrayLeaders = numbers => {
-  leaders = [];
-  for (let i = 0; i < numbers.length - 1; i++) {
-    let sum = numbers.slice(i + 1, numbers.length).reduce((a, b) => a + b);
-    console.log(sum);
-    if (numbers[i] > sum) {
-      leaders.push(numbers[i]);
-    }
-  }
-  if (numbers[numbers.length - 1] > 0) {
-    leaders.push(numbers[numbers.length - 1]);
-  }
-  console.log(leaders);
+// var arrayLeaders = numbers => {
+//   leaders = [];
+//   for (let i = 0; i < numbers.length - 1; i++) {
+//     let sum = numbers.slice(i + 1, numbers.length).reduce((a, b) => a + b);
+//     console.log(sum);
+//     if (numbers[i] > sum) {
+//       leaders.push(numbers[i]);
+//     }
+//   }
+//   if (numbers[numbers.length - 1] > 0) {
+//     leaders.push(numbers[numbers.length - 1]);
+//   }
+//   console.log(leaders);
+// }
+
+// arrayLeaders([0,-1,-29,3,2])
+
+
+// ------------------ // remove everything inside the parentheses as well as the parentheses themselves
+
+function removeParentheses(string) {
+  while (string.includes('(')) {
+    string = string.replace(/\([^\(\)]*\)/, '');
+  } 
+  console.log(string);
 }
 
-arrayLeaders([0,-1,-29,3,2])
+removeParentheses('hello exam(ple (words(more words) here) some)thing');
+
+
