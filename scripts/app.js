@@ -125,17 +125,28 @@
 
 // console.log(isPrime(27));
 
+// ================================================================================== //
 
 // ------------------- // Find the int that appears an odd number of times. Assume there will always be only one integer that appears an odd number of times.
 
-function findOdd(array) {
-  const obj = {}
-  array.forEach(num => {
-    Object.keys(obj).includes(num.toString()) 
-    ? obj[num]++ : obj[num] = 1
-  })
-  oddValue = Object.values(obj).find(element => element % 2 !== 0);
-  return Object.keys(obj).find(key => obj[key] === oddValue);
+// function findOdd(array) {
+//   const obj = {}
+//   array.forEach(num => {
+//     Object.keys(obj).includes(num.toString()) 
+//     ? obj[num]++ : obj[num] = 1
+//   })
+//   oddValue = Object.values(obj).find(element => element % 2 !== 0);
+//   return Object.keys(obj).find(key => Number(obj[key]) === oddValue);
+// }
+
+// findOdd([5,4,3,2,1,5,4,3,2,10,10]);
+
+
+// ------------------- // find the smallest integer in an array of integers
+
+findSmallestInt = (args) => {
+  console.log(Math.min(...args)) 
 }
 
-findOdd([5,4,3,2,1,5,4,3,2,10,10]);
+findSmallestInt([34, -345, -1, 100])
+
