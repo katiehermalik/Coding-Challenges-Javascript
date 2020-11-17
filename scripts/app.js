@@ -153,16 +153,26 @@
 
 // ------------------- // Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized.
 
-function toCamelCase(phrase) {
-  phraseArr = phrase.split("");
-  console.log(phraseArr)
-  for (let i = 0; i < phraseArr.length; i++) {
-    if (phraseArr[i] === '-' || phraseArr[i] === '_') {
-      phraseArr[i+1] = phraseArr[i+1].toUpperCase()
-      phraseArr.splice(i, 1);
-    }
-  }
-  console.log(phraseArr.join(''))
+// function toCamelCase(phrase) {
+//   phraseArr = phrase.split("");
+//   console.log(phraseArr)
+//   for (let i = 0; i < phraseArr.length; i++) {
+//     if (phraseArr[i] === '-' || phraseArr[i] === '_') {
+//       phraseArr[i+1] = phraseArr[i+1].toUpperCase()
+//       phraseArr.splice(i, 1);
+//     }
+//   }
+//   console.log(phraseArr.join(''))
+// }
+
+// toCamelCase("the-stealth-warrior")
+
+
+// ------------------- // square every digit of a number
+
+squareEveryDigit = (num) => {
+  numArr = (String(num)).split('').map(number => number**2).join('')
+  console.log(Number(numArr))
 }
 
-toCamelCase("the-stealth-warrior")
+squareEveryDigit(9119);
