@@ -115,12 +115,27 @@
 
 // ------------------ // returns whether the number passed in is a prime number or not
 
-function isPrime(num) {
-  if (num < 2) return false;
-  const sqrt = Math.floor(Math.sqrt(num));
-  for (let i = 2; i <= sqrt; i++)
-    if (num % i === 0) return false;
-  return true;
+// function isPrime(num) {
+//   if (num < 2) return false;
+//   const sqrt = Math.floor(Math.sqrt(num));
+//   for (let i = 2; i <= sqrt; i++)
+//     if (num % i === 0) return false;
+//   return true;
+// }
+
+// console.log(isPrime(27));
+
+
+// ------------------- // Find the int that appears an odd number of times. Assume there will always be only one integer that appears an odd number of times.
+
+function findOdd(array) {
+  const obj = {}
+  array.forEach(num => {
+    Object.keys(obj).includes(num.toString()) 
+    ? obj[num]++ : obj[num] = 1
+  })
+  oddValue = Object.values(obj).find(element => element % 2 !== 0);
+  return Object.keys(obj).find(key => obj[key] === oddValue);
 }
 
-console.log(isPrime(27));
+findOdd([5,4,3,2,1,5,4,3,2,10,10]);
