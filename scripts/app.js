@@ -144,9 +144,25 @@
 
 // ------------------- // find the smallest integer in an array of integers
 
-findSmallestInt = (args) => {
-  console.log(Math.min(...args)) 
+// findSmallestInt = (args) => {
+//   console.log(Math.min(...args)) 
+// }
+
+// findSmallestInt([34, -345, -1, 100])
+
+
+// ------------------- // Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized.
+
+function toCamelCase(phrase) {
+  phraseArr = phrase.split("");
+  console.log(phraseArr)
+  for (let i = 0; i < phraseArr.length; i++) {
+    if (phraseArr[i] === '-' || phraseArr[i] === '_') {
+      phraseArr[i+1] = phraseArr[i+1].toUpperCase()
+      phraseArr.splice(i, 1);
+    }
+  }
+  console.log(phraseArr.join(''))
 }
 
-findSmallestInt([34, -345, -1, 100])
-
+toCamelCase("the-stealth-warrior")
