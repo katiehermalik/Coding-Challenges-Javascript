@@ -170,9 +170,19 @@
 
 // ------------------- // square every digit of a number
 
-squareEveryDigit = (num) => {
-  numArr = (String(num)).split('').map(number => number**2).join('')
-  console.log(Number(numArr))
+// squareEveryDigit = (num) => {
+//   numArr = (String(num)).split('').map(number => number**2).join('')
+//   console.log(Number(numArr))
+// }
+
+// squareEveryDigit(9119);
+
+// ------------------- // ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. If the function is passed a valid PIN string, return true, else return false.
+
+function checkPin(pin) {
+  if (pin.length === 4 || pin.length === 6) {
+    (pin[pin.search(/[^\d]/g)]) ? console.log(false) : console.log(true)
+  } else console.log(false)
 }
 
-squareEveryDigit(9119);
+checkPin('192556')
