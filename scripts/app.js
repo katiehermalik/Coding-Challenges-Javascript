@@ -177,12 +177,27 @@
 
 // squareEveryDigit(9119);
 
+
 // ------------------- // ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. If the function is passed a valid PIN string, return true, else return false.
 
-function checkPin(pin) {
-  if (pin.length === 4 || pin.length === 6) {
-    (pin[pin.search(/[^\d]/g)]) ? console.log(false) : console.log(true)
-  } else console.log(false)
+// function checkPin(pin) {
+//   if (pin.length === 4 || pin.length === 6) {
+//     (pin[pin.search(/[^\d]/g)]) ? console.log(false) : console.log(true)
+//   } else console.log(false)
+// }
+
+// checkPin('192556')
+
+
+// ------------------- // Population Growth - return n number of entire years needed to get a population greater or equal to p.
+
+const nb_year = (p0, percent, aug, p) => {
+  let n = 0;
+  while (p0 < p) {
+    p0 = p0 + (p0 * percent/100) + aug;
+    n++;
+  }
+  return n;
 }
 
-checkPin('192556')
+console.log(nb_year(1500000, 2.5, 10000, 2000000));
