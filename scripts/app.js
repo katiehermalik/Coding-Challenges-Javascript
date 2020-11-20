@@ -125,8 +125,6 @@
 
 // console.log(isPrime(27));
 
-// ================================================================================== //
-
 // ------------------- // Find the int that appears an odd number of times. Assume there will always be only one integer that appears an odd number of times.
 
 // function findOdd(array) {
@@ -191,13 +189,23 @@
 
 // ------------------- // Population Growth - return n number of entire years needed to get a population greater or equal to p.
 
-const nb_year = (p0, percent, aug, p) => {
-  let n = 0;
-  while (p0 < p) {
-    p0 = p0 + (p0 * percent/100) + aug;
-    n++;
-  }
-  return n;
+// const nb_year = (p0, percent, aug, p) => {
+//   let n = 0;
+//   while (p0 < p) {
+//     p0 += (p0 * percent/100) + aug;
+//     n++;
+//   }
+//   return n;
+// }
+
+// console.log(nb_year(1500, 5, 100, 5000));
+
+// ------------------- // Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+
+function solution(nums){
+  if (nums === null || nums === []) {
+    return [];
+  } else return nums.sort((a, b) => {return a-b})
 }
 
-console.log(nb_year(1500000, 2.5, 10000, 2000000));
+console.log(solution([1, 2, 10, 50, 5]));
