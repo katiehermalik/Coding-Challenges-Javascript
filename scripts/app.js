@@ -241,15 +241,24 @@
 
 // ------------------- // Above, refactored
 
-function anagrams(word, words) {
-  const sortedWord = word.split('').sort().join('');
-  let anagrams = [];
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].split('').sort().join('') === sortedWord) {
-      anagrams.push(words[i]);
-    }
-  }
-  return anagrams;
+// function anagrams(word, words) {
+//   const sortedWord = word.split('').sort().join('');
+//   let anagrams = [];
+//   for (let i = 0; i < words.length; i++) {
+//     if (words[i].split('').sort().join('') === sortedWord) {
+//       anagrams.push(words[i]);
+//     }
+//   }
+//   return anagrams;
+// }
+
+// console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+
+
+// ------------------- // Given a number , return the maximum number that could be formed from the digits of the number given.
+
+function maxNumber(n) {
+  return Number(String(n).split('').sort().reverse().join(''));
 }
 
-console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+console.log(maxNumber(63792));
