@@ -202,10 +202,39 @@
 
 // ------------------- // Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
 
-function solution(nums){
-  if (nums === null || nums === []) {
-    return [];
-  } else return nums.sort((a, b) => {return a-b})
+// function solution(nums){
+//   if (nums === null || nums === []) {
+//     return [];
+//   } else return nums.sort((a, b) => {return a-b})
+// }
+
+// console.log(solution([1, 2, 10, 50, 5]));
+
+
+// ------------------- // find all the anagrams of a word from a list
+
+function anagrams(word, words) {
+  wordObj = {}
+  wordSplit = word.split('')
+  for (let i = 0; i < wordSplit.length; i++) {
+    if (wordObj[wordSplit[i]]) {
+      wordObj[wordSplit[i]]++
+    } else wordObj[wordSplit[i]] = 1
+  }
+  let anagrams = []
+  for (let i = 0; i < words.length; i++) {
+    let wordsObj = {}
+    let wordsSplit = words[i].split('')
+    for (let j = 0; j < wordsSplit.length; j++) {
+      if (wordsObj[wordsSplit[j]]) {
+        wordsObj[wordsSplit[j]]++
+      } else wordsObj[wordsSplit[j]] = 1
+    }
+    if (JSON.stringify(wordObj) === JSON.stringify(wordsObj, Object.keys(wordsObj).sort())) {
+      anagrams.push(words[i]);
+    }
+  }
+  return anagrams
 }
 
-console.log(solution([1, 2, 10, 50, 5]));
+console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
