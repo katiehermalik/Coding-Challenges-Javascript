@@ -213,28 +213,43 @@
 
 // ------------------- // find all the anagrams of a word from a list
 
+// function anagrams(word, words) {
+//   wordObj = {}
+//   wordSplit = word.split('')
+//   for (let i = 0; i < wordSplit.length; i++) {
+//     if (wordObj[wordSplit[i]]) {
+//       wordObj[wordSplit[i]]++
+//     } else wordObj[wordSplit[i]] = 1
+//   }
+//   let anagrams = []
+//   for (let i = 0; i < words.length; i++) {
+//     let wordsObj = {}
+//     let wordsSplit = words[i].split('')
+//     for (let j = 0; j < wordsSplit.length; j++) {
+//       if (wordsObj[wordsSplit[j]]) {
+//         wordsObj[wordsSplit[j]]++
+//       } else wordsObj[wordsSplit[j]] = 1
+//     }
+//     if (JSON.stringify(wordObj) === JSON.stringify(wordsObj, Object.keys(wordsObj).sort())) {
+//       anagrams.push(words[i]);
+//     }
+//   }
+//   return anagrams
+// }
+
+// console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
+
+// ------------------- // Above, refactored
+
 function anagrams(word, words) {
-  wordObj = {}
-  wordSplit = word.split('')
-  for (let i = 0; i < wordSplit.length; i++) {
-    if (wordObj[wordSplit[i]]) {
-      wordObj[wordSplit[i]]++
-    } else wordObj[wordSplit[i]] = 1
-  }
-  let anagrams = []
+  const sortedWord = word.split('').sort().join('');
+  let anagrams = [];
   for (let i = 0; i < words.length; i++) {
-    let wordsObj = {}
-    let wordsSplit = words[i].split('')
-    for (let j = 0; j < wordsSplit.length; j++) {
-      if (wordsObj[wordsSplit[j]]) {
-        wordsObj[wordsSplit[j]]++
-      } else wordsObj[wordsSplit[j]] = 1
-    }
-    if (JSON.stringify(wordObj) === JSON.stringify(wordsObj, Object.keys(wordsObj).sort())) {
+    if (words[i].split('').sort().join('') === sortedWord) {
       anagrams.push(words[i]);
     }
   }
-  return anagrams
+  return anagrams;
 }
 
-console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
+console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
