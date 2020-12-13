@@ -257,8 +257,21 @@
 
 // ------------------- // Given a number , return the maximum number that could be formed from the digits of the number given.
 
-function maxNumber(n) {
-  return Number(String(n).split('').sort().reverse().join(''));
-}
+// function maxNumber(n) {
+//   return Number(String(n).split('').sort().reverse().join(''));
+// }
 
-console.log(maxNumber(63792));
+// console.log(maxNumber(63792));
+
+
+// ------------------- // Find the middle element
+
+function middle(inputArray) {
+  max = Math.max(...inputArray);
+  min = Math.min(...inputArray);
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] !== max && inputArray[i] !== min) return i;
+  }
+};
+
+console.log(middle([16, -17, -5]));
