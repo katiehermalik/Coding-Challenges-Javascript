@@ -266,12 +266,26 @@
 
 // ------------------- // Find the middle element
 
-function middle(inputArray) {
-  max = Math.max(...inputArray);
-  min = Math.min(...inputArray);
-  for (let i = 0; i < inputArray.length; i++) {
-    if (inputArray[i] !== max && inputArray[i] !== min) return i;
-  }
-};
+// function middle(inputArray) {
+//   max = Math.max(...inputArray);
+//   min = Math.min(...inputArray);
+//   for (let i = 0; i < inputArray.length; i++) {
+//     if (inputArray[i] !== max && inputArray[i] !== min) return i;
+//   }
+// };
 
-console.log(middle([16, -17, -5]));
+// console.log(middle([16, -17, -5]));
+
+
+// ------------------- // Replace all items
+
+function replaceAll(seq, find, replace) {
+  if (typeof seq === "string") seq = seq.split("");
+  for (let i = 0; i < seq.length; i++) {
+    if (seq.indexOf(find) !== -1) seq.splice(seq.indexOf(find), 1, replace);
+  }
+  if (typeof seq[0] === "string") seq = seq.join("");
+  return seq;
+}
+
+console.log(replaceAll([1,2,2], 1, 2))
