@@ -279,13 +279,26 @@
 
 // ------------------- // Replace all items
 
-function replaceAll(seq, find, replace) {
-  if (typeof seq === "string") seq = seq.split("");
-  for (let i = 0; i < seq.length; i++) {
-    if (seq.indexOf(find) !== -1) seq.splice(seq.indexOf(find), 1, replace);
-  }
-  if (typeof seq[0] === "string") seq = seq.join("");
-  return seq;
+// function replaceAll(seq, find, replace) {
+//   if (typeof seq === "string") seq = seq.split("");
+//   for (let i = 0; i < seq.length; i++) {
+//     if (seq.indexOf(find) !== -1) seq.splice(seq.indexOf(find), 1, replace);
+//   }
+//   if (typeof seq[0] === "string") seq = seq.join("");
+//   return seq;
+// }
+
+// console.log(replaceAll([1,2,2], 1, 2))
+
+
+// ------------------- // Sum even numbers
+
+function sumEvenNumbers(input) {
+  let sum = 0;   
+  for (const i of input) {     
+    if (i % 2 === 0) sum += i;   
+  }   
+  return sum; 
 }
 
-console.log(replaceAll([1,2,2], 1, 2))
+console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
