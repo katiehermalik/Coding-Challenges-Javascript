@@ -306,10 +306,19 @@
 
 // ------------------- // Maximum Multiple - Given a Divisor and a Bound , Find the largest integer N where N is divisible by divisor, N is less than or equal to bound, and N is greater than 0.
 
-function maxMultiple(divisor, bound) {
-  let tempArr = [];
-  for (let i = divisor; i <= bound; i++) tempArr.push(i);
-  return Math.max(...tempArr.filter((num) => num % divisor === 0));
+// function maxMultiple(divisor, bound) {
+//   let tempArr = [];
+//   for (let i = divisor; i <= bound; i++) tempArr.push(i);
+//   return Math.max(...tempArr.filter((num) => num % divisor === 0));
+// }
+
+// console.log(maxMultiple(37, 200))
+
+
+// ------------------- // Triangular Number - Given a number 'T' from interval [1; 2147483646], find if it is triangular number or not.
+
+function isTriangular(t) {   
+  return (((Math.sqrt(8 * t + 1) - 1) / 2) % 1 === 0); 
 }
 
-console.log(maxMultiple(37, 200))
+console.log(isTriangular(2))
