@@ -293,12 +293,23 @@
 
 // ------------------- // Sum even numbers
 
-function sumEvenNumbers(input) {
-  let sum = 0;   
-  for (const i of input) {     
-    if (i % 2 === 0) sum += i;   
-  }   
-  return sum; 
+// function sumEvenNumbers(input) {
+//   let sum = 0;   
+//   for (const i of input) {     
+//     if (i % 2 === 0) sum += i;   
+//   }   
+//   return sum; 
+// }
+
+// console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+
+
+// ------------------- // Maximum Multiple - Given a Divisor and a Bound , Find the largest integer N where N is divisible by divisor, N is less than or equal to bound, and N is greater than 0.
+
+function maxMultiple(divisor, bound) {
+  let tempArr = [];
+  for (let i = divisor; i <= bound; i++) tempArr.push(i);
+  return Math.max(...tempArr.filter((num) => num % divisor === 0));
 }
 
-console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(maxMultiple(37, 200))
