@@ -317,8 +317,28 @@
 
 // ------------------- // Triangular Number - Given a number 'T' from interval [1; 2147483646], find if it is triangular number or not.
 
-function isTriangular(t) {   
-  return (((Math.sqrt(8 * t + 1) - 1) / 2) % 1 === 0); 
+// function isTriangular(t) {   
+//   return (((Math.sqrt(8 * t + 1) - 1) / 2) % 1 === 0); 
+// }
+
+// console.log(isTriangular(2))
+
+
+// ------------------- // Create a new matrix where the columns and rows of the original are swapped
+
+function transpose(matrix) {
+  let trans = [];
+  let oneMatrix = [];
+  let i = 0;
+  let size = matrix.length;
+  while (i < matrix[0].length) {
+  matrix.map(matri => {
+    oneMatrix.push(matri[i])
+  })
+  i++;
+  }
+  while (oneMatrix.length > 0) trans.push(oneMatrix.splice(0, size))
+  return trans
 }
 
-console.log(isTriangular(2))
+console.log(transpose([[1,2,3],[4,5,6]]))
