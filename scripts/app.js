@@ -353,8 +353,14 @@ function pattern(n){
   const horizontalArray = [];
   
   while (i <= n) {
-    verticalArray.push(`${i}\n`.padStart(n + 1, ' '))
-    horizontalArray.push(i)
+    if (i > 9) {
+      let num = Number(String(i).split('').pop())
+      verticalArray.push(`${num}\n`.padStart(n + 1, ' '))
+      horizontalArray.push(num)
+    } else {
+      verticalArray.push(`${i}\n`.padStart(n + 1, ' '))
+      horizontalArray.push(i)
+    }
     i++
   }
   verticalArray.push(...verticalArray.slice().reverse().slice(1, verticalArray.length))
@@ -364,4 +370,4 @@ function pattern(n){
   return verticalArray.join('')
 }
 
-console.log(pattern(5));
+console.log(pattern(22));
