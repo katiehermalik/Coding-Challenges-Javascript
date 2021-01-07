@@ -326,19 +326,42 @@
 
 // ------------------- // Create a new matrix where the columns and rows of the original are swapped
 
-function transpose(matrix) {
-  let trans = [];
-  let oneMatrix = [];
-  let i = 0;
-  let size = matrix.length;
-  while (i < matrix[0].length) {
-  matrix.map(matri => {
-    oneMatrix.push(matri[i])
-  })
-  i++;
+// function transpose(matrix) {
+//   let trans = [];
+//   let oneMatrix = [];
+//   let i = 0;
+//   let size = matrix.length;
+//   while (i < matrix[0].length) {
+//   matrix.map(matri => {
+//     oneMatrix.push(matri[i])
+//   })
+//   i++;
+//   }
+//   while (oneMatrix.length > 0) trans.push(oneMatrix.splice(0, size))
+//   return trans
+// }
+
+// console.log(transpose([[1,2,3],[4,5,6]]))
+
+
+// ------------------- // Using n as a parameter, return a 'plus' pattern from the function.
+
+
+function pattern(n){
+  let i = 1;
+  const verticalArray = [];
+  const horizontalArray = [];
+  
+  while (i <= n) {
+    verticalArray.push(`${i}\n`.padStart(n + 1, ' '))
+    horizontalArray.push(i)
+    i++
   }
-  while (oneMatrix.length > 0) trans.push(oneMatrix.splice(0, size))
-  return trans
+  verticalArray.push(...verticalArray.slice().reverse().slice(1, verticalArray.length))
+  horizontalArray.push(...horizontalArray.slice().reverse().slice(1, horizontalArray.length))
+  horizontalArray.push('\n')
+  verticalArray.splice(n - 1, 1, horizontalArray.join(''))
+  return verticalArray.join('')
 }
 
-console.log(transpose([[1,2,3],[4,5,6]]))
+console.log(pattern(5));
