@@ -346,28 +346,39 @@
 
 // ------------------- // Using n as a parameter, return a 'plus' pattern from the function.
 
-
-function pattern(n){
-  let i = 1;
-  const verticalArray = [];
-  const horizontalArray = [];
+// function pattern(n){
+//   let i = 1;
+//   const verticalArray = [];
+//   const horizontalArray = [];
   
-  while (i <= n) {
-    if (i > 9) {
-      let num = Number(String(i).split('').pop())
-      verticalArray.push(`${num}\n`.padStart(n + 1, ' '))
-      horizontalArray.push(num)
-    } else {
-      verticalArray.push(`${i}\n`.padStart(n + 1, ' '))
-      horizontalArray.push(i)
-    }
-    i++
-  }
-  verticalArray.push(...verticalArray.slice().reverse().slice(1, verticalArray.length))
-  horizontalArray.push(...horizontalArray.slice().reverse().slice(1, horizontalArray.length))
-  horizontalArray.push('\n')
-  verticalArray.splice(n - 1, 1, horizontalArray.join(''))
-  return verticalArray.join('')
+//   while (i <= n) {
+//     if (i > 9) {
+//       let num = Number(String(i).split('').pop())
+//       verticalArray.push(`${num}\n`.padStart(n + 1, ' '))
+//       horizontalArray.push(num)
+//     } else {
+//       verticalArray.push(`${i}\n`.padStart(n + 1, ' '))
+//       horizontalArray.push(i)
+//     }
+//     i++
+//   }
+//   verticalArray.push(...verticalArray.slice().reverse().slice(1, verticalArray.length))
+//   horizontalArray.push(...horizontalArray.slice().reverse().slice(1, horizontalArray.length))
+//   horizontalArray.push('\n')
+//   verticalArray.splice(n - 1, 1, horizontalArray.join(''))
+//   return verticalArray.join('')
+// }
+
+// console.log(pattern(22));
+
+
+// ------------------- // Your function should accept the inputs 4 and 7. If 4 is entered, the function should return 7. If 7 is entered, the function should return 4. Anything else entered as input should return 0. There's only one catch, your function cannot include if statements, switch statements, or the ternary operator, or the eval function due to the fact that you can get around the if requirement using it.
+
+function fourSeven(num){
+  let otherNumber = ([...arguments].filter(number => number === 7))[0] && 4 || 
+  ([...arguments].filter(number => number === 4))[0] && 7 ||
+  ([...arguments].filter(number => number !== 4 && number !== 7)) && 0
+  return otherNumber
 }
 
-console.log(pattern(22));
+console.log(fourSeven(2))
