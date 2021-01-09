@@ -374,11 +374,27 @@
 
 // ------------------- // Your function should accept the inputs 4 and 7. If 4 is entered, the function should return 7. If 7 is entered, the function should return 4. Anything else entered as input should return 0. There's only one catch, your function cannot include if statements, switch statements, or the ternary operator, or the eval function due to the fact that you can get around the if requirement using it.
 
-function fourSeven(num){
-  let otherNumber = ([...arguments].filter(number => number === 7))[0] && 4 || 
-  ([...arguments].filter(number => number === 4))[0] && 7 ||
-  ([...arguments].filter(number => number !== 4 && number !== 7)) && 0
-  return otherNumber
+// function fourSeven(num){
+//   let otherNumber = ([...arguments].filter(number => number === 7))[0] && 4 || 
+//   ([...arguments].filter(number => number === 4))[0] && 7 ||
+//   ([...arguments].filter(number => number !== 4 && number !== 7)) && 0
+//   return otherNumber
+// }
+
+// console.log(fourSeven(2))
+
+
+// ------------------- // There are some stones on Bob's table in a row, and each of them can be red, green or blue, indicated by the characters R, G, and B. Help Bob find the minimum number of stones he needs to remove from the table so that the stones in each pair of adjacent stones have different colours.
+
+function solve(stones) {
+  const remove = {
+    howMany: 0,
+  }
+  let [...stonesArray] = stones
+  stonesArray.map((stone, i) => { 
+    stone === stonesArray[i + 1]? remove.howMany++ : remove.howMany
+  })
+  return remove.howMany
 }
 
-console.log(fourSeven(2))
+console.log(solve("GBRGGRBBBBRRGGGB"))
