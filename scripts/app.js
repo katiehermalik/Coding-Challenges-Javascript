@@ -402,18 +402,26 @@
 
 // ------------------- // Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
 
-const a1 = ["xyz", "live", "strong"];
-const a2 = ["lively", "alive", "harp", "sharp", "armstrong"];
+// const a1 = ["xyz", "live", "strong"];
+// const a2 = ["lively", "alive", "harp", "sharp", "armstrong"];
 
-function inArray(arr1, arr2) {
-  let newArr = [];
-  arr2.map((el) => {
-    arr1.map((x) => {
-      el.includes(x) ? newArr.push(x) : null;
-    });
-  });
-  const set = new Set(newArr.sort());
-  return Array.from(set);
+// function inArray(arr1, arr2) {
+//   let newArr = [];
+//   arr2.map((el) => {
+//     arr1.map((x) => {
+//       el.includes(x) ? newArr.push(x) : null;
+//     });
+//   });
+//   const set = new Set(newArr.sort());
+//   return Array.from(set);
+// }
+
+// console.log(inArray(a1, a2));
+
+// ------------------- // Filter test
+
+function getEvenNumbers(numbersArray){
+  return numbersArray.filter(num => num % 2 === 0)
 }
 
-console.log(inArray(a1, a2));
+console.log(getEvenNumbers([2,4,5,6]));
