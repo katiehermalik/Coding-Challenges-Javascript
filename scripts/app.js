@@ -420,8 +420,46 @@
 
 // ------------------- // Filter test
 
-function getEvenNumbers(numbersArray){
-  return numbersArray.filter(num => num % 2 === 0)
-}
+// function getEvenNumbers(numbersArray){
+//   return numbersArray.filter(num => num % 2 === 0)
+// }
 
-console.log(getEvenNumbers([2,4,5,6]));
+// console.log(getEvenNumbers([2,4,5,6]));
+
+
+// ------------------- // Find the length of the longest substring of s that does not repeat any letters.
+
+function lengthOfLongestSubstring(s) {
+  if (s.length !== 0) {
+    let substrings = [];
+    const arr = s.split("");
+    if (arr.join('') === [...new Set(arr)].join('')) {
+      substrings.push(s)
+    } else {
+      for (let i = 0; i < s.length; i++) {
+        let characters = [];
+        let sub = s.substring(i);
+        for (let j = 0; j < sub.length; j++) {
+          if (j === (sub.length - 1) && sub[j] !== sub[j - 1]) {
+            if (characters.includes(sub[j])) {
+              substrings.push(characters.join(''));
+            } else {
+              characters.push(sub[j])
+              substrings.push(characters.join(''));
+            }
+          } else if (characters.includes(sub[j])) {
+            substrings.push(characters.join(''));
+            break;
+          } else {
+            characters.push(sub[j])
+          }
+        }
+      }
+    }
+    return substrings.reduce((a, b) => a.length > b.length ? a : b).length
+  } else {
+    return 0;
+  }
+};
+
+console.log(lengthOfLongestSubstring("pwwkew"))
