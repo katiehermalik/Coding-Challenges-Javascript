@@ -429,37 +429,53 @@
 
 // ------------------- // Find the length of the longest substring of s that does not repeat any letters.
 
-function lengthOfLongestSubstring(s) {
-  if (s.length !== 0) {
-    let substrings = [];
-    const arr = s.split("");
-    if (arr.join('') === [...new Set(arr)].join('')) {
-      substrings.push(s)
-    } else {
-      for (let i = 0; i < s.length; i++) {
-        let characters = [];
-        let sub = s.substring(i);
-        for (let j = 0; j < sub.length; j++) {
-          if (j === (sub.length - 1) && sub[j] !== sub[j - 1]) {
-            if (characters.includes(sub[j])) {
-              substrings.push(characters.join(''));
-            } else {
-              characters.push(sub[j])
-              substrings.push(characters.join(''));
-            }
-          } else if (characters.includes(sub[j])) {
-            substrings.push(characters.join(''));
-            break;
-          } else {
-            characters.push(sub[j])
-          }
-        }
-      }
+// function lengthOfLongestSubstring(s) {
+//   if (s.length !== 0) {
+//     let substrings = [];
+//     const arr = s.split("");
+//     if (arr.join('') === [...new Set(arr)].join('')) {
+//       substrings.push(s)
+//     } else {
+//       for (let i = 0; i < s.length; i++) {
+//         let characters = [];
+//         let sub = s.substring(i);
+//         for (let j = 0; j < sub.length; j++) {
+//           if (j === (sub.length - 1) && sub[j] !== sub[j - 1]) {
+//             if (characters.includes(sub[j])) {
+//               substrings.push(characters.join(''));
+//             } else {
+//               characters.push(sub[j])
+//               substrings.push(characters.join(''));
+//             }
+//           } else if (characters.includes(sub[j])) {
+//             substrings.push(characters.join(''));
+//             break;
+//           } else {
+//             characters.push(sub[j])
+//           }
+//         }
+//       }
+//     }
+//     return substrings.reduce((a, b) => a.length > b.length ? a : b).length
+//   } else {
+//     return 0;
+//   }
+// };
+
+// console.log(lengthOfLongestSubstring("pwwkew"))
+
+
+// ------------------- // Two Sum - Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+function twoSum(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    let remainingNums = nums.slice(i + 1);
+    for (let j = 0; j < remainingNums.length; j++) {
+      if (remainingNums[j] + nums[i] === target) {
+        return `${i}${nums.lastIndexOf(remainingNums[j])}`.split('').map(elem => Number(elem));
+      } 
     }
-    return substrings.reduce((a, b) => a.length > b.length ? a : b).length
-  } else {
-    return 0;
   }
 };
 
-console.log(lengthOfLongestSubstring("pwwkew"))
+console.log(twoSum([2,7,11,15,7], 26))
