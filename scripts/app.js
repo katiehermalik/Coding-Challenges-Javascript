@@ -467,15 +467,29 @@
 
 // ------------------- // Two Sum - Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
+// function twoSum(nums, target) {
+//   for (let i = 0; i < nums.length; i++) {
+//     let remainingNums = nums.slice(i + 1);
+//     for (let j = 0; j < remainingNums.length; j++) {
+//       if (remainingNums[j] + nums[i] === target) {
+//         return `${i}${nums.lastIndexOf(remainingNums[j])}`.split('').map(elem => Number(elem));
+//       } 
+//     }
+//   }
+// };
+
+// console.log(twoSum([2,7,11,15,7], 26))
+
+// ------------------- // Two Sum - more optimal solution:
+
 function twoSum(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-    let remainingNums = nums.slice(i + 1);
-    for (let j = 0; j < remainingNums.length; j++) {
-      if (remainingNums[j] + nums[i] === target) {
-        return `${i}${nums.lastIndexOf(remainingNums[j])}`.split('').map(elem => Number(elem));
-      } 
-    }
+  const comp = {};
+  for(let i=0; i < nums.length; i++){
+      if(comp[nums[i]] >= 0){
+          return [comp[nums[i]], i]
+      }
+      comp[target-nums[i]] = i
   }
 };
 
-console.log(twoSum([2,7,11,15,7], 26))
+console.log(twoSum([3, 3], 6))
