@@ -482,14 +482,36 @@
 
 // ------------------- // Two Sum - more optimal solution:
 
-function twoSum(nums, target) {
-  const comp = {};
-  for(let i=0; i < nums.length; i++){
-      if(comp[nums[i]] >= 0){
-          return [comp[nums[i]], i]
-      }
-      comp[target-nums[i]] = i
-  }
-};
+// function twoSum(nums, target) {
+//   const comp = {};
+//   for(let i=0; i < nums.length; i++){
+//       if(comp[nums[i]] >= 0){
+//           return [comp[nums[i]], i]
+//       }
+//       comp[target-nums[i]] = i
+//   }
+// };
 
-console.log(twoSum([3, 3], 6))
+// console.log(twoSum([3, 3], 6))
+
+// ------------------- // Find the second largest number in an array
+
+// function getSecondLargest(nums) {
+//   const newArr = [...new Set(nums)]
+//   const maxNum = Math.max(...newArr)
+//   const indexMax = newArr.indexOf(maxNum)
+//   newArr.splice(indexMax, 1)
+//   return Math.max(...newArr)
+// }
+
+function getSecondLargest(nums) {
+  let largestNum = -Infinity
+  let secondLargestNum = -Infinity
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > largestNum) largestNum = nums[i]
+    if (largestNum > nums[i] && nums[i] >= secondLargestNum) secondLargestNum = nums[i]
+  }
+  return secondLargestNum;
+}
+
+console.log(getSecondLargest([-2, -3, -6, -6, -5]));
