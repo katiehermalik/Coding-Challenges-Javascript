@@ -504,14 +504,22 @@
 //   return Math.max(...newArr)
 // }
 
-function getSecondLargest(nums) {
-  let largestNum = -Infinity
-  let secondLargestNum = -Infinity
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] > largestNum) largestNum = nums[i]
-    if (largestNum > nums[i] && nums[i] >= secondLargestNum) secondLargestNum = nums[i]
-  }
-  return secondLargestNum;
+// function getSecondLargest(nums) {
+//   let largestNum = -Infinity
+//   let secondLargestNum = -Infinity
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] > largestNum) largestNum = nums[i]
+//     if (nums[i] < largestNum && nums[i] >= secondLargestNum) secondLargestNum = nums[i]
+//   }
+//   return secondLargestNum;
+// }
+
+// console.log(getSecondLargest([2, 3, 6, 6, 5]));
+
+// ------------------- // Add Two Arrays
+
+function addTwoNumbers(l1, l2) {
+  return String(Number(l1.reverse().join('')) + Number(l2.reverse().join(''))).split('').reverse().map((str) => +str);
 }
 
-console.log(getSecondLargest([-2, -3, -6, -6, -5]));
+console.log(addTwoNumbers([2,4,3], [5,6,4]))
