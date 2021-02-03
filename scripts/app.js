@@ -518,8 +518,22 @@
 
 // ------------------- // Add Two Arrays
 
-function addTwoNumbers(l1, l2) {
-  return String(Number(l1.reverse().join('')) + Number(l2.reverse().join(''))).split('').reverse().map((str) => +str);
-}
+// function addTwoNumbers(l1, l2) {
+//   return String(Number(l1.reverse().join('')) + Number(l2.reverse().join(''))).split('').reverse().map((str) => +str);
+// }
 
-console.log(addTwoNumbers([2,4,3], [5,6,4]))
+// console.log(addTwoNumbers([2,4,3], [5,6,4]))
+
+// ------------------- // Break up camel case - insert space
+
+function breakCamelCase(str) {
+  arr = str.split('');
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].toUpperCase() === arr[i]) {
+      arr.splice(i, 0, ' ');
+      i++;
+    }
+  }
+  return arr.join('');
+}
+console.log(breakCamelCase('camelCasing'));
