@@ -526,14 +526,30 @@
 
 // ------------------- // Break up camel case - insert space
 
-function breakCamelCase(str) {
-  arr = str.split('');
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].toUpperCase() === arr[i]) {
-      arr.splice(i, 0, ' ');
-      i++;
-    }
-  }
-  return arr.join('');
+// function breakCamelCase(str) {
+//   arr = str.split('');
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i].toUpperCase() === arr[i]) {
+//       arr.splice(i, 0, ' ');
+//       i++;
+//     }
+//   }
+//   return arr.join('');
+// }
+// console.log(breakCamelCase('camelCasing'));
+
+// ------------------- // Make readable time in Hours, Minutes, Seconds
+
+function humanReadable(seconds) {
+  let newHrs;
+  let newMins;
+  let newSecs;
+  newHrs = Math.floor(seconds / 3600);
+  newMins = Math.floor((seconds - newHrs * 3600) / 60);
+  newSecs = seconds - newHrs * 3600 - newMins * 60;
+
+  return `${String(newHrs).padStart(2, "0")}:${String(newMins).padStart(2,"0")}:${String(newSecs).padStart(2, "0")}`;
 }
-console.log(breakCamelCase('camelCasing'));
+
+console.log(humanReadable(32151));
+
