@@ -540,16 +540,53 @@
 
 // ------------------- // Make readable time in Hours, Minutes, Seconds
 
-function humanReadable(seconds) {
-  let newHrs;
-  let newMins;
-  let newSecs;
-  newHrs = Math.floor(seconds / 3600);
-  newMins = Math.floor((seconds - newHrs * 3600) / 60);
-  newSecs = seconds - newHrs * 3600 - newMins * 60;
+// function humanReadable(seconds) {
+//   let newHrs;
+//   let newMins;
+//   let newSecs;
+//   newHrs = Math.floor(seconds / 3600);
+//   newMins = Math.floor((seconds - newHrs * 3600) / 60);
+//   newSecs = seconds - newHrs * 3600 - newMins * 60;
 
-  return `${String(newHrs).padStart(2, "0")}:${String(newMins).padStart(2,"0")}:${String(newSecs).padStart(2, "0")}`;
+//   return `${String(newHrs).padStart(2, "0")}:${String(newMins).padStart(2,"0")}:${String(newSecs).padStart(2, "0")}`;
+// }
+
+// console.log(humanReadable(32151));
+
+// ------------------- // Rot13 cypher
+
+function rot13(message) {
+
+  const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+  let msgArr = [];
+  let cypherIndex = [];
+  let capitalLetters = [];
+  let checkAlphabet = /[a-z]/g;
+
+  msgArr = message.split('').map((el) => el.toLowerCase());
+  cypherIndex = msgArr.map((el) => {
+    if (alphabet.indexOf(el) + 13 >= alphabet.length) {
+      return alphabet[13 - (alphabet.length - alphabet.indexOf(el))];
+    } else if (!el.match(checkAlphabet)) {
+      return el;
+    } else {
+      return alphabet[alphabet.indexOf(el) + 13];
+    }
+  });
+
+  capitalLetters = message.split('').map((el, i) => {
+    if (el === el.toUpperCase()) {
+      return i;
+    }
+  });
+  capitalLetters = capitalLetters.filter((el) => el !== undefined);
+
+  for (let i = 0; i < capitalLetters.length; i++) {
+    cypherIndex[capitalLetters[i]] = cypherIndex[
+      capitalLetters[i]
+    ].toUpperCase();
+  }
+
+  return cypherIndex.join('');
 }
-
-console.log(humanReadable(32151));
-
