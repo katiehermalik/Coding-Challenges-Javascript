@@ -593,138 +593,172 @@
 
 // -------------------------------- // Array Methods Practice
 
-const texasss = [
-  {
-    name: 'Mike',
-    age: 23,
-    gender: 'm',
-    us: false,
-  },
-  {
-    name: 'Liz',
-    age: 20,
-    gender: 'f',
-    us: true,
-  },
-  {
-    name: 'Chris',
-    age: 102,
-    gender: 'm',
-    us: true,
-  },
-  {
-    name: 'Chuloo',
-    age: 27,
-    gender: 'm',
-    us: false,
-  },
-  {
-    name: 'Annie',
-    age: 30,
-    gender: 'f',
-    us: true,
-  },
-]
+// const texasss = [
+//   {
+//     name: 'Mike',
+//     age: 23,
+//     gender: 'm',
+//     us: false,
+//   },
+//   {
+//     name: 'Liz',
+//     age: 20,
+//     gender: 'f',
+//     us: true,
+//   },
+//   {
+//     name: 'Chris',
+//     age: 102,
+//     gender: 'm',
+//     us: true,
+//   },
+//   {
+//     name: 'Chuloo',
+//     age: 27,
+//     gender: 'm',
+//     us: false,
+//   },
+//   {
+//     name: 'Annie',
+//     age: 30,
+//     gender: 'f',
+//     us: true,
+//   },
+// ]
 
-// Part 1 - Find all users older than 24
-console.log(texasss.filter((val) => val.age > 24))
+// // Part 1 - Find all users older than 24
+// console.log(texasss.filter((val) => val.age > 24))
 
-// Part 2 - Find the total age of all users
-console.log(texasss.reduce((acc, curr) => acc + curr.age, 0))
+// // Part 2 - Find the total age of all users
+// console.log(texasss.reduce((acc, curr) => acc + curr.age, 0))
 
-// Part 3 - List all female coders
-console.log(texasss.filter((val) => val.gender === 'f'))
+// // Part 3 - List all female coders
+// console.log(texasss.filter((val) => val.gender === 'f'))
 
 
-// ARRAY 2
-const newieyork = [
-  {
-    name: 'Michelle',
-    age: 19,
-    coder:true,
-    gender: 'f',
-    us: true,
-  },
-  {
-    name: 'Sam',
-    age: 25,
-    coder:false,
-    gender: 'm',
-    us: false,
-  },
-  {
-    name: 'Ivy',
-    age: 26,
-    coder:true,
-    gender: 'f',
-    us: false,
-  },
-  {
-    name: 'Nick',
-    age: 32,
-    coder:true,
-    gender: 'm',
-    us: true,
-  },
-  {
-    name: 'Jim Beglin',
-    age: 65,
-    coder:false,
-    gender: 'm',
-    us: true,
-  },
-]
+// // ARRAY 2
+// const newieyork = [
+//   {
+//     name: 'Michelle',
+//     age: 19,
+//     coder:true,
+//     gender: 'f',
+//     us: true,
+//   },
+//   {
+//     name: 'Sam',
+//     age: 25,
+//     coder:false,
+//     gender: 'm',
+//     us: false,
+//   },
+//   {
+//     name: 'Ivy',
+//     age: 26,
+//     coder:true,
+//     gender: 'f',
+//     us: false,
+//   },
+//   {
+//     name: 'Nick',
+//     age: 32,
+//     coder:true,
+//     gender: 'm',
+//     us: true,
+//   },
+//   {
+//     name: 'Jim Beglin',
+//     age: 65,
+//     coder:false,
+//     gender: 'm',
+//     us: true,
+//   },
+// ]
 
-// Part 1 - List all users in US in ascending order
-console.log((newieyork.filter((val) => val.us === true))
-  .sort((a, b) => a.name.localeCompare(b.name)))
+// // Part 1 - List all users in US in ascending order
+// console.log((newieyork.filter((val) => val.us === true))
+//   .sort((a, b) => a.name.localeCompare(b.name)))
 
-// Part 2 - Sort all users by age
-console.log(newieyork.sort((a, b) => a.age - b.age));
+// // Part 2 - Sort all users by age
+// console.log(newieyork.sort((a, b) => a.age - b.age));
 
-// Part 3 -  List all female coders
-console.log(newieyork.filter((val) => val.gender === 'f'))
+// // Part 3 -  List all female coders
+// console.log(newieyork.filter((val) => val.gender === 'f'))
 
-// ARRAY 3
-const vegzas = [
-  {
-    name: 'Charly',
-    age: 32,
-    coder:true,
-    gender: 'm',
-  },
-  {
-    name: 'Law',
-    age: 21,
-    coder:true,
-    gender: 'm',
-  },
-  {
-    name: 'Rosey',
-    age: 42,
-    coder:false,
-    gender: 'f',
-  },
-  {
-    name: 'Steph',
-    age: 18,
-    coder:true,
-    gender:'f'
-  },
-  {
-    name: 'Jon',
-    age: 47,
-    coder:false,
-    gender: 'm',
-  },
-]
+// // ARRAY 3
+// const vegzas = [
+//   {
+//     name: 'Charly',
+//     age: 32,
+//     coder:true,
+//     gender: 'm',
+//   },
+//   {
+//     name: 'Law',
+//     age: 21,
+//     coder:true,
+//     gender: 'm',
+//   },
+//   {
+//     name: 'Rosey',
+//     age: 42,
+//     coder:false,
+//     gender: 'f',
+//   },
+//   {
+//     name: 'Steph',
+//     age: 18,
+//     coder:true,
+//     gender:'f'
+//   },
+//   {
+//     name: 'Jon',
+//     age: 47,
+//     coder:false,
+//     gender: 'm',
+//   },
+// ]
 
-// Part 1 - Find the total age of male coders under 25
-console.log(vegzas.filter((val) => val.gender === 'm' && val.age < 25)
-  .reduce((acc, curr) => acc + curr.age, 0))
+// // Part 1 - Find the total age of male coders under 25
+// console.log(vegzas.filter((val) => val.gender === 'm' && val.age < 25)
+//   .reduce((acc, curr) => acc + curr.age, 0))
 
-// Part 2 - List all male coders over 30
-console.log(vegzas.filter((val) => val.gender === 'm' && val.age > 30))
+// // Part 2 - List all male coders over 30
+// console.log(vegzas.filter((val) => val.gender === 'm' && val.age > 30))
 
-// Part 3 - Find the total age of everyone in texasss, newieyork and vegzas combined.
-console.log([...texasss, ...newieyork, ...vegzas].reduce((acc, curr) => acc + curr.age, 0))
+// // Part 3 - Find the total age of everyone in texasss, newieyork and vegzas combined.
+// console.log([...texasss, ...newieyork, ...vegzas].reduce((acc, curr) => acc + curr.age, 0))
+
+
+// -------------------------------- // Merged String Checker
+
+function isMerge(s, part1, part2) {
+  const charObj = {};
+  s.split('').map((curr, i) => charObj[curr] = i + 1)
+  const partsArray = [part1, part2]
+  let previous;
+  const partsCheckArray = partsArray.map((current) => {
+    previous = 0;
+    return (((current.split('').map((curr) => {
+      if (charObj[curr] > previous) {
+        previous = charObj[curr];
+        return true
+      } else {
+        return false;
+      }
+    })).filter(val => val === false)).length === 0) ? true : false;
+  })
+  if ((partsCheckArray.filter(val => val === false)).length === 0) {
+    sArray = Object.keys(charObj)
+    partsMergedArray = (part1 + part2).split('')
+    if ((sArray.map((curr) => partsMergedArray.indexOf(curr))).find(elem => elem === -1)) {
+      return false;
+    } else if (sArray.length === partsMergedArray.length) {
+      return true;
+    } else return false;
+  } else {
+    return false;
+  };
+}
+
+console.log(isMerge('codewars', 'cdwrdf', 'oeas'));
