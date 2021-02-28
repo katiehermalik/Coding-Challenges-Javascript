@@ -732,33 +732,71 @@
 
 // -------------------------------- // Merged String Checker
 
-function isMerge(s, part1, part2) {
-  const charObj = {};
-  s.split('').map((curr, i) => charObj[curr] = i + 1)
-  const partsArray = [part1, part2]
-  let previous;
-  const partsCheckArray = partsArray.map((current) => {
-    previous = 0;
-    return (((current.split('').map((curr) => {
-      if (charObj[curr] > previous) {
-        previous = charObj[curr];
-        return true
-      } else {
-        return false;
-      }
-    })).filter(val => val === false)).length === 0) ? true : false;
-  })
-  if ((partsCheckArray.filter(val => val === false)).length === 0) {
-    sArray = Object.keys(charObj)
-    partsMergedArray = (part1 + part2).split('')
-    if ((sArray.map((curr) => partsMergedArray.indexOf(curr))).find(elem => elem === -1)) {
-      return false;
-    } else if (sArray.length === partsMergedArray.length) {
-      return true;
-    } else return false;
-  } else {
-    return false;
-  };
+// function isMerge(s, part1, part2) {
+//   const charObj = {};
+//   s.split('').map((curr, i) => charObj[curr] = i + 1)
+//   const partsArray = [part1, part2]
+//   let previous;
+//   const partsCheckArray = partsArray.map((current) => {
+//     previous = 0;
+//     return (((current.split('').map((curr) => {
+//       if (charObj[curr] > previous) {
+//         previous = charObj[curr];
+//         return true
+//       } else {
+//         return false;
+//       }
+//     })).filter(val => val === false)).length === 0) ? true : false;
+//   })
+//   if ((partsCheckArray.filter(val => val === false)).length === 0) {
+//     sArray = Object.keys(charObj)
+//     partsMergedArray = (part1 + part2).split('')
+//     if ((sArray.map((curr) => partsMergedArray.indexOf(curr))).find(elem => elem === -1)) {
+//       return false;
+//     } else if (sArray.length === partsMergedArray.length) {
+//       return true;
+//     } else return false;
+//   } else {
+//     return false;
+//   };
+// }
+
+// console.log(isMerge('codewars', 'cod', 'wars'));
+
+
+// ------------------------ ERK - DP
+
+const t1 = performance.now();
+
+
+let keypads = ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPRT', 'XAEBKSY']
+let wordlist = ['APPLE', 'PLEAS', 'PLEASE']
+
+const wordsCreated = {};
+let solution = [];
+
+for (let i = 0, n = keypads.length; i < n; i++) {
+  wordsCreated[keypads[i]] = 0;
 }
 
-console.log(isMerge('codewars', 'cdwrdf', 'oeas'));
+for (let i = 0, n = wordlist.length; i < n; i++) {
+  const wordLetters = {};
+  wordlist[i].split('').forEach(letter => wordLetters[letter] = 1);
+  keypads.filter(pad => wordlist[i].includes(pad[0]))
+  .forEach(pad => {
+      const matchedLetters = {...wordLetters};
+      pad.split('').forEach(char => matchedLetters[char] += 1);
+      Object.values(matchedLetters).includes(1) 
+        ? wordsCreated[pad] += 0 
+        : wordsCreated[pad] += 1
+  });
+};
+
+for (let i = 0, n = keypads.length; i < n; i++) {
+  solution.push(wordsCreated[keypads[i]]);
+}
+
+console.log(Object.values(wordsCreated)); 
+
+const t2 = performance.now();
+console.log(t2 - t1)
