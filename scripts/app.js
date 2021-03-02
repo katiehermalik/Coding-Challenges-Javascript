@@ -766,37 +766,53 @@
 
 // ------------------------ ERK - DP
 
-const t1 = performance.now();
+// const t1 = performance.now();
 
 
-let keypads = ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPRT', 'XAEBKSY']
-let wordlist = ['APPLE', 'PLEAS', 'PLEASE']
+// let keypads = ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPRT', 'XAEBKSY']
+// let wordlist = ['APPLE', 'PLEAS', 'PLEASE']
 
-const wordsCreated = {};
-let solution = [];
+// const wordsCreated = {};
+// let solution = [];
 
-for (let i = 0, n = keypads.length; i < n; i++) {
-  wordsCreated[keypads[i]] = 0;
+// for (let i = 0, n = keypads.length; i < n; i++) {
+//   wordsCreated[keypads[i]] = 0;
+// }
+
+// for (let i = 0, n = wordlist.length; i < n; i++) {
+//   const wordLetters = {};
+//   wordlist[i].split('').forEach(letter => wordLetters[letter] = 1);
+//   keypads.filter(pad => wordlist[i].includes(pad[0]))
+//   .forEach(pad => {
+//       const matchedLetters = {...wordLetters};
+//       pad.split('').forEach(char => matchedLetters[char] += 1);
+//       Object.values(matchedLetters).includes(1) 
+//         ? wordsCreated[pad] += 0 
+//         : wordsCreated[pad] += 1
+//   });
+// };
+
+// for (let i = 0, n = keypads.length; i < n; i++) {
+//   solution.push(wordsCreated[keypads[i]]);
+// }
+
+// console.log(Object.values(wordsCreated)); 
+
+// const t2 = performance.now();
+// console.log(t2 - t1)
+
+// ------------------------ Moving Zeros To The End
+
+function moveZeros(arr) {
+  let zeroArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      arr.splice(i, 1)
+      zeroArr.push(0)
+      i--
+    }
+  }
+  return [...arr, ...zeroArr]
 }
 
-for (let i = 0, n = wordlist.length; i < n; i++) {
-  const wordLetters = {};
-  wordlist[i].split('').forEach(letter => wordLetters[letter] = 1);
-  keypads.filter(pad => wordlist[i].includes(pad[0]))
-  .forEach(pad => {
-      const matchedLetters = {...wordLetters};
-      pad.split('').forEach(char => matchedLetters[char] += 1);
-      Object.values(matchedLetters).includes(1) 
-        ? wordsCreated[pad] += 0 
-        : wordsCreated[pad] += 1
-  });
-};
-
-for (let i = 0, n = keypads.length; i < n; i++) {
-  solution.push(wordsCreated[keypads[i]]);
-}
-
-console.log(Object.values(wordsCreated)); 
-
-const t2 = performance.now();
-console.log(t2 - t1)
+console.log(moveZeros(["a",0,"b","c","d",1,1,3,1,9,0,0,9,0,0,0,0,0,0,0])); 
