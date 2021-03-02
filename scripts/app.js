@@ -803,16 +803,41 @@
 
 // ------------------------ Moving Zeros To The End
 
-function moveZeros(arr) {
-  let zeroArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === 0) {
-      arr.splice(i, 1)
-      zeroArr.push(0)
-      i--
-    }
+// function moveZeros(arr) {
+//   let zeroArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === 0) {
+//       arr.splice(i, 1)
+//       zeroArr.push(0)
+//       i--
+//     }
+//   }
+//   return [...arr, ...zeroArr]
+// }
+
+// console.log(moveZeros(["a",0,"b","c","d",1,1,3,1,9,0,0,9,0,0,0,0,0,0,0])); 
+
+// ------------------------ Write Number in Expanded Form
+
+function expandedForm(num) {
+  let solution = '';
+  let strNum = String(num); 
+  for (let i = 0; i < strNum.length; i++) {
+    let subStr = strNum.substring(i)
+    if (subStr[0] !== '0') {
+      expandNum = subStr[0].padEnd(subStr.length, 0)
+      solution += `${expandNum} + `
+    } 
   }
-  return [...arr, ...zeroArr]
+  return solution.slice(0, -3);
 }
 
-console.log(moveZeros(["a",0,"b","c","d",1,1,3,1,9,0,0,9,0,0,0,0,0,0,0])); 
+// const expandedForm = n => n.toString()
+//                             .split("")
+//                             .reverse()
+//                             .map( (a, i) => a * Math.pow(10, i))
+//                             .filter(a => a > 0)
+//                             .reverse()
+//                             .join(" + ");
+
+console.log(expandedForm(70304))
