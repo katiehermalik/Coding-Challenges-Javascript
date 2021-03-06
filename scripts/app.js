@@ -819,25 +819,35 @@
 
 // ------------------------ Write Number in Expanded Form
 
-function expandedForm(num) {
-  let solution = '';
-  let strNum = String(num); 
-  for (let i = 0; i < strNum.length; i++) {
-    let subStr = strNum.substring(i)
-    if (subStr[0] !== '0') {
-      expandNum = subStr[0].padEnd(subStr.length, 0)
-      solution += `${expandNum} + `
-    } 
-  }
-  return solution.slice(0, -3);
+// function expandedForm(num) {
+//   let solution = '';
+//   let strNum = String(num); 
+//   for (let i = 0; i < strNum.length; i++) {
+//     let subStr = strNum.substring(i)
+//     if (subStr[0] !== '0') {
+//       expandNum = subStr[0].padEnd(subStr.length, 0)
+//       solution += `${expandNum} + `
+//     } 
+//   }
+//   return solution.slice(0, -3);
+// }
+
+// // const expandedForm = n => n.toString()
+// //                             .split("")
+// //                             .reverse()
+// //                             .map( (a, i) => a * Math.pow(10, i))
+// //                             .filter(a => a > 0)
+// //                             .reverse()
+// //                             .join(" + ");
+
+// console.log(expandedForm(70304))
+
+// ------------------------ Sum of Parts
+
+function partsSums(ls) {
+  ls.unshift(0);
+  let sum = ls.reduce((acc, curr) => acc + curr, 0);
+  return ls.map(value => sum = sum - value);
 }
 
-// const expandedForm = n => n.toString()
-//                             .split("")
-//                             .reverse()
-//                             .map( (a, i) => a * Math.pow(10, i))
-//                             .filter(a => a > 0)
-//                             .reverse()
-//                             .join(" + ");
-
-console.log(expandedForm(70304))
+console.log(partsSums([0, 1, 3, 6, 10]))
