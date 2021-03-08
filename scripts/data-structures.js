@@ -35,20 +35,34 @@
 //   [-3,-5,-3,-6,-6,-6],
 //   [-3,-6,0,-8,-6,-7]]))
 
+
 // ------------------------ // Left Rotation 
 
-/*
- * Complete the 'rotateLeft' function below.
- *
- * The function is expected to return an INTEGER_ARRAY.
- * The function accepts following parameters:
- *  1. INTEGER d
- *  2. INTEGER_ARRAY arr
- */
+// /*
+//  * Complete the 'rotateLeft' function below.
+//  *
+//  * The function is expected to return an INTEGER_ARRAY.
+//  * The function accepts following parameters:
+//  *  1. INTEGER d
+//  *  2. INTEGER_ARRAY arr
+//  */
 
-function rotateLeft(d, arr) {
-  const shiftedNums = arr.splice(0, d)
-  return [...arr, ...shiftedNums]
+// function rotateLeft(d, arr) {
+//   const shiftedNums = arr.splice(0, d)
+//   return [...arr, ...shiftedNums]
+// }
+
+// console.log(rotateLeft(2, [1,2,3,4,5]))
+
+
+// ------------------------ // Sparse Arrays
+
+function matchingStrings(strings, queries) {
+  const solutionArr = [];
+  for (let i = 0; i < queries.length; i++) {
+    solutionArr.push((strings.filter(str => str === queries[i])).length)
+  }
+  return solutionArr;
 }
 
-console.log(rotateLeft(2, [1,2,3,4,5]))
+console.log(matchingStrings(['ab','ab','abc'], ['ab','abc','bc']));
