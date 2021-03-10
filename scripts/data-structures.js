@@ -70,31 +70,41 @@
 // ------------------------ // Array Manipulation
 // Starting with a 1-indexed array of zeros and a list of operations, for each operation add a value to each the array element between two given indices, inclusive. Once all operations have been performed, return the maximum value in the array.
 
-function arrayManipulation(n, queries) {
-  const originalArr = [];
-  let len = queries.length
-  for (let i = 0; i <= n; i++) originalArr.push(0);
-  for (let i = 0; i < len; i++) {
-    let start = queries[i][0];
-    let end = queries[i][1] + 1;
-    let addend = queries[i][2]
-    originalArr[start] += addend;
-    originalArr[end] -= addend;
+// function arrayManipulation(n, queries) {
+//   const originalArr = [];
+//   let len = queries.length
+//   for (let i = 0; i <= n; i++) originalArr.push(0);
+//   for (let i = 0; i < len; i++) {
+//     let start = queries[i][0];
+//     let end = queries[i][1] + 1;
+//     let addend = queries[i][2]
+//     originalArr[start] += addend;
+//     originalArr[end] -= addend;
+//   }
+//   console.log(originalArr);
+//   let maxNum = 0;
+//   originalArr.reduce((acc, curr) => {
+//     if (acc > maxNum) maxNum = acc;
+//     return acc + curr
+//   })
+//   return maxNum;
+// }
+
+// console.log(arrayManipulation(10,[
+//   [2,6,8],
+//   [3,5,7],
+//   [1,8,1],
+//   [5,9,15]
+// ]));
+
+
+// ## Linked Lists ## //
+
+// Print the elements of a linked list
+
+function printLinkedList(head) {
+  while (head !== null) {
+    console.log(head.data);
+    head = head.next;
   }
-  console.log(originalArr);
-  let maxNum = 0;
-  originalArr.reduce((acc, curr) => {
-    if (acc > maxNum) maxNum = acc;
-    return acc + curr
-  })
-  return maxNum;
 }
-
-console.log(arrayManipulation(10,[
-  [2,6,8],
-  [3,5,7],
-  [1,8,1],
-  [5,9,15]
-]));
-
-
