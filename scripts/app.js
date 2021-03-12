@@ -844,10 +844,41 @@
 
 // ------------------------ Sum of Parts
 
-function partsSums(ls) {
-  ls.unshift(0);
-  let sum = ls.reduce((acc, curr) => acc + curr, 0);
-  return ls.map(value => sum = sum - value);
+// function partsSums(ls) {
+//   ls.unshift(0);
+//   let sum = ls.reduce((acc, curr) => acc + curr, 0);
+//   return ls.map(value => sum = sum - value);
+// }
+
+// console.log(partsSums([0, 1, 3, 6, 10]))
+
+// ------------------------ Scramblies
+
+function scramble(str1, str2) {
+  const str1Arr = str1.split('')
+  const obj = {}
+  const solutionArr1 = []
+  const solutionArr2 = []
+
+  for (let i = 0; i < str2.length; i++) {
+    if (obj[str2[i]]) obj[str2[i]] += 1;
+    if (!obj[str2[i]]) obj[str2[i]] = 1;
+    (str1Arr.includes(str2[i])) 
+    ? solutionArr1.push(true)
+    : solutionArr1.push(false)
+  }
+
+  for (let i = 0; i < str1.length; i++) {
+    if (obj[str1[i]]) {
+      let letterArr = str1Arr.filter(val => val === str1[i])
+      letterArr.length >= obj[str1[i]] 
+      ? solutionArr2.push(true) 
+      : solutionArr2.push(false);
+    }
+  }
+
+  if (solutionArr2.includes(false) || solutionArr1.includes(false)) return false;
+  if (!solutionArr2.includes(false) && !solutionArr2.includes(false)) return true;
 }
 
-console.log(partsSums([0, 1, 3, 6, 10]))
+console.log(scramble('scriptjava','javascript'))
