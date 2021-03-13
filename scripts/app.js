@@ -863,17 +863,23 @@ function scramble(str1, str2) {
   for (let i = 0; i < str2.length; i++) {
     if (obj[str2[i]]) obj[str2[i]] += 1;
     if (!obj[str2[i]]) obj[str2[i]] = 1;
-    (str1Arr.includes(str2[i])) 
-    ? solutionArr1.push(true)
-    : solutionArr1.push(false)
+    if (str1Arr.includes(str2[i])) {
+      solutionArr1.push(true)
+    } else if (!str1Arr.includes(str2[i])) {
+      solutionArr1.push(false);
+      return false;
+    }
   }
 
   for (let i = 0; i < str1.length; i++) {
     if (obj[str1[i]]) {
       let letterArr = str1Arr.filter(val => val === str1[i])
-      letterArr.length >= obj[str1[i]] 
-      ? solutionArr2.push(true) 
-      : solutionArr2.push(false);
+      if (letterArr.length >= obj[str1[i]]) {
+        solutionArr2.push(true) 
+      } else if (letterArr.length < obj[str1[i]]) {
+        solutionArr2.push(false);
+        return false;
+      }
     }
   }
 
