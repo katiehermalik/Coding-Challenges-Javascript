@@ -854,37 +854,69 @@
 
 // ------------------------ Scramblies
 
-function scramble(str1, str2) {
-  const str1Arr = str1.split('')
-  const obj = {}
-  const solutionArr1 = []
-  const solutionArr2 = []
+// function scramble(str1, str2) {
+//   const str1Arr = str1.split('')
+//   const obj = {}
+//   const solutionArr1 = []
+//   const solutionArr2 = []
 
-  for (let i = 0; i < str2.length; i++) {
-    if (obj[str2[i]]) obj[str2[i]] += 1;
-    if (!obj[str2[i]]) obj[str2[i]] = 1;
-    if (str1Arr.includes(str2[i])) {
-      solutionArr1.push(true)
-    } else if (!str1Arr.includes(str2[i])) {
-      solutionArr1.push(false);
-      return false;
+//   for (let i = 0; i < str2.length; i++) {
+//     if (obj[str2[i]]) obj[str2[i]] += 1;
+//     if (!obj[str2[i]]) obj[str2[i]] = 1;
+//     if (str1Arr.includes(str2[i])) {
+//       solutionArr1.push(true)
+//     } else if (!str1Arr.includes(str2[i])) {
+//       solutionArr1.push(false);
+//       return false;
+//     }
+//   }
+
+//   for (let i = 0; i < str1.length; i++) {
+//     if (obj[str1[i]]) {
+//       let letterArr = str1Arr.filter(val => val === str1[i])
+//       if (letterArr.length >= obj[str1[i]]) {
+//         solutionArr2.push(true) 
+//       } else if (letterArr.length < obj[str1[i]]) {
+//         solutionArr2.push(false);
+//         return false;
+//       }
+//     }
+//   }
+
+//   if (solutionArr2.includes(false) || solutionArr1.includes(false)) return false;
+//   if (!solutionArr2.includes(false) && !solutionArr2.includes(false)) return true;
+// }
+
+// console.log(scramble('scriptjava','javascript'))
+
+
+
+// ------------------------ Strip Comments
+
+function solution(input, markers) {
+  inputArr = input.split("\n")
+  let leftOversArr = [];
+  inputArr.map((str) => {
+    let leftOvers;
+    if(str.indexOf(markers[0]) !== -1) {
+      leftOvers = str.slice(0, str.indexOf(markers[0]) - 1)
+    } else if (str.indexOf(markers[1]) !== -1) {
+      leftOvers = str.slice(0, str.indexOf(markers[1]) - 1)
+    } else {
+      leftOvers = str;
     }
-  }
+    leftOvers.trim();
+    leftOversArr.push(leftOvers);
+  })
+  return leftOversArr.join('\n');
+};
 
-  for (let i = 0; i < str1.length; i++) {
-    if (obj[str1[i]]) {
-      let letterArr = str1Arr.filter(val => val === str1[i])
-      if (letterArr.length >= obj[str1[i]]) {
-        solutionArr2.push(true) 
-      } else if (letterArr.length < obj[str1[i]]) {
-        solutionArr2.push(false);
-        return false;
-      }
-    }
-  }
+console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]));
 
-  if (solutionArr2.includes(false) || solutionArr1.includes(false)) return false;
-  if (!solutionArr2.includes(false) && !solutionArr2.includes(false)) return true;
-}
-
-console.log(scramble('scriptjava','javascript'))
+// function solution(input, markers) {
+//   return input.split('\n').map(
+//     line => markers.reduce(
+//       (line, marker) => line.split(marker)[0].trim(), line
+//     )
+//   ).join('\n')
+// }
