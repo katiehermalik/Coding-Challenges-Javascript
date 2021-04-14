@@ -891,32 +891,151 @@
 
 
 
-// ------------------------ Strip Comments
-
-function solution(input, markers) {
-  inputArr = input.split("\n")
-  let leftOversArr = [];
-  inputArr.map((str) => {
-    let leftOvers;
-    if(str.indexOf(markers[0]) !== -1) {
-      leftOvers = str.slice(0, str.indexOf(markers[0]) - 1)
-    } else if (str.indexOf(markers[1]) !== -1) {
-      leftOvers = str.slice(0, str.indexOf(markers[1]) - 1)
-    } else {
-      leftOvers = str;
-    }
-    leftOvers.trim();
-    leftOversArr.push(leftOvers);
-  })
-  return leftOversArr.join('\n');
-};
-
-console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]));
+// // ------------------------ Strip Comments
 
 // function solution(input, markers) {
-//   return input.split('\n').map(
-//     line => markers.reduce(
-//       (line, marker) => line.split(marker)[0].trim(), line
-//     )
-//   ).join('\n')
-// }
+//   inputArr = input.split("\n")
+//   let leftOversArr = [];
+//   inputArr.map((str) => {
+//     let leftOvers;
+//     if(str.indexOf(markers[0]) !== -1) {
+//       leftOvers = str.slice(0, str.indexOf(markers[0]) - 1)
+//     } else if (str.indexOf(markers[1]) !== -1) {
+//       leftOvers = str.slice(0, str.indexOf(markers[1]) - 1)
+//     } else {
+//       leftOvers = str;
+//     }
+//     leftOvers.trim();
+//     leftOversArr.push(leftOvers);
+//   })
+//   return leftOversArr.join('\n');
+// };
+
+// console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]));
+
+// // function solution(input, markers) {
+// //   return input.split('\n').map(
+// //     line => markers.reduce(
+// //       (line, marker) => line.split(marker)[0].trim(), line
+// //     )
+// //   ).join('\n')
+// // }
+
+// const solution = (arr) => {
+//   let increaser = 1;
+//   let sum = arr[increaser];
+//   for (let i = 0; i < arr.length; i++) {
+//       increaser *= 2;
+//       console.log('increaser ----->', increaser);
+//       subArr = arr.slice(increaser, increaser + 1)
+//       console.log(subArr);
+//       sum += subArr.reduce((a, b) => a + b, 0)
+//       console.log(sum);
+//   }
+// };
+
+// solution([3,6,2,9,-1,10])
+
+
+
+
+
+// <template>
+//   <div id="app">
+//     <input type="text" id="firstname" placeholder="Coder" v-model="firstName">
+//     <input type="text" id="lastname" placeholder="Byte" v-model="lastName">>
+//     <button @click="generateUserName">Generate</button>
+
+//     <span id="output">{{ username }}</span>
+//   </div>
+// </template>
+
+// <script>
+
+//   export default {
+//     name: "App",
+//     data() {
+//       return {
+//         username: "",
+//         firstName: "",
+//         lastName: "",
+//       };
+//     },
+//     methods: {
+//       generateUserName() {
+//         let randomInt = Math.floor(Math.random() * 10);
+//         this.username = `${this.firstName}_${this.lastName}_${randomInt}`.toLowerCase();
+//       }
+//     }
+//   };
+// </script>
+
+
+// <template>
+//   <div id="app">
+//     <p><strong>Add a new contact:</strong></p>
+//     <div>
+//       <label>First Name: <input type="text" class="userFirstname" placeholder="Coder" v-model="firstName" /></label> <br />
+//       <label>Last Name: <input type="text" class="userLastname" placeholder="Byte" v-model="lastName" /></label> <br />
+//       <label>Phone: <input type="number" class="userPhone" placeholder="8885559999" v-model="phoneNumber" /></label> <br />
+//       <button @click="AddContact" class="submitButton">Add New Contact</button>
+//     </div>
+//     <table id="phoneBookItems" class="informationTable">
+//       <ul>
+//         <li v-for="(contact, index) in items" :key="index">
+//           <span class="name">{{ `${contact.lastName}, ${contact.firstName}` }}</span>
+//           <span class="number">{{ contact.phoneNumber }}</span>
+//         </li>
+//       </ul>
+//     </table>
+//   </div>
+// </template>
+
+// <script>
+//   export default {
+//     name: "App",
+//     data() {
+//       return {
+//         firstName: '',
+//         lastName: '',
+//         phoneNumber: 8885559999,
+//         items: [],
+//       }
+//     },
+//     methods: {
+//       // create contact
+//       AddContact() {
+//         const contact = {
+//           firstName: this.firstName,
+//           lastName: this.lastName,
+//           phoneNumber: this.phoneNumber,
+//         }
+//       // push contact into items array
+//       this.items.push(contact);
+//       // sort items array by last name
+//       this.items.sort((a,b) => a.lastName.localeCompare(b.lastName === 0));
+//       }
+//     }
+//   };
+// </script>
+
+// <style>
+//   .name {
+//     margin-right: 2rem;
+//   }
+// </style>
+
+//  Counting Duplicates
+
+function duplicateCount(text) {
+  const lowerText = text.toLowerCase();
+  const obj = {};
+  let result = 0;
+  for (let i = 0; i < lowerText.length; i++) {
+    obj[lowerText[i]] ? obj[lowerText[i]] += 1 : obj[lowerText[i]] = 1;
+  }
+  for (let prop in obj) if (obj[prop] >= 2) result += 1;
+  return result;
+}
+
+console.log(duplicateCount("Indivisibilities")); 
