@@ -1027,15 +1027,166 @@
 
 //  Counting Duplicates
 
-function duplicateCount(text) {
-  const lowerText = text.toLowerCase();
-  const obj = {};
-  let result = 0;
-  for (let i = 0; i < lowerText.length; i++) {
-    obj[lowerText[i]] ? obj[lowerText[i]] += 1 : obj[lowerText[i]] = 1;
-  }
-  for (let prop in obj) if (obj[prop] >= 2) result += 1;
-  return result;
-}
+// function duplicateCount(text) {
+//   const lowerText = text.toLowerCase();
+//   const obj = {};
+//   let result = 0;
+//   for (let i = 0; i < lowerText.length; i++) {
+//     obj[lowerText[i]] ? obj[lowerText[i]] += 1 : obj[lowerText[i]] = 1;
+//   }
+//   for (let prop in obj) if (obj[prop] >= 2) result += 1;
+//   return result;
+// }
 
-console.log(duplicateCount("Indivisibilities")); 
+// console.log(duplicateCount("Indivisibilities")); 
+
+//Dot Calculator
+
+// function dotCalculator (equation) {
+// 	const equationArr = equation.split(" ");
+//   let answerNum;
+//   let answerArr = [];
+//   switch (equationArr[1]) {
+//     case "//":
+//       answerNum = Math.floor(equationArr[0].length / equationArr[2].length);
+//       break;
+//     case "*":
+//       answerNum = equationArr[0].length * equationArr[2].length;
+//       break;
+//     case "+":
+//       answerNum = equationArr[0].length + equationArr[2].length;
+//       break;
+//     case "-":
+//       answerNum = equationArr[0].length - equationArr[2].length;
+//       break;
+//   }
+//   for (i = 0; i < answerNum; i++) {
+//     answerArr.push('.')
+//   }
+//   return answerArr.join('');
+// }
+
+// console.log(dotCalculator('..... // ..'));
+
+//Check to see if number is a palindrome w/o converting to String
+
+// function reverseNumber(number) {
+//   let origNumber = number;
+//   let revNumber = 0;
+//   while (number > 0) {
+//     revNumber = (revNumber * 10) + (number % 10);
+//     console.log(revNumber);
+//     number = Math.floor(number / 10);
+//   }
+//   console.log(origNumber);
+//   console.log(revNumber);
+//   return origNumber === revNumber ? true : false;
+// }
+// console.log(reverseNumber(876));
+
+//IndexOf Array in Array
+
+// try { function searchArray (arrayToSearch, query) {
+//     let indexOfArr = -1;
+//     if (!Array.isArray(query) || query.length !== 2) {
+//       throw 'Input query is invalid.';
+//     }
+//     for (i = 0; i < arrayToSearch.length; i++) {
+//       if (!Array.isArray(arrayToSearch[i]) || arrayToSearch[i].length !== 2) {
+//         throw 'Input arrayToSearch is invalid.';
+//       } else if (arrayToSearch[i].join("") === query.join("")) {
+//         indexOfArr = i;
+//         break;
+//       } 
+//     }
+//     return indexOfArr;
+//   }
+// } catch (e) {
+//   console.error(e);
+// }
+// console.log(searchArray([[2,3],[7,2],[9,20],[1,2],[7,2],[45,4],[7,87],[4,5],[2,7],[6,32]], [7,2]));
+
+// Mexican Wave
+
+// function wave(str){
+//   let resultArr = [];
+//   let strArr = str.split('');
+//   for (i = 0; i < strArr.length; i++) {
+//     if (strArr[i] === " ") {
+//       continue;
+//     }
+//     strArr[i] = strArr[i].toUpperCase();
+//     let newString = strArr.join('');
+//     resultArr.push(newString);
+//     strArr[i] = strArr[i].toLowerCase();
+//   }
+//   return resultArr;
+// }
+// console.log(wave("two words"));
+
+
+// LEETCODE - Roman Numeral to Number
+
+// function romanToInt(romanNum) {
+//   let valueObj = {
+//     I : 1,
+//     V : 5,
+//     X : 10,
+//     L : 50,
+//     C : 100,
+//     D : 500,
+//     M : 1000,
+//   }
+//   let romanArr = romanNum.split('');
+//   let currentVal = 0;
+//   for (i = 0; i < romanArr.length; i++) {
+//     if (valueObj[romanArr[i]] < valueObj[romanArr[i+1]]) {
+//       currentVal += valueObj[romanArr[i+1]] - valueObj[romanArr[i]];
+//       i++;
+//       continue;
+//     }
+//     currentVal += valueObj[romanArr[i]];
+//   }
+//     return currentVal;
+// };
+
+// console.log(romanToInt('MCMXCIV'));
+
+//LEETCODE - Longest Substring Without Repeating Characters
+
+// var lengthOfLongestSubstring = function(s) {
+//     let arr = [];
+//     let currentLongest = '';
+//     for (i = 0; i < s.length; i++) {
+//       if (arr.includes(s[i])) {
+//         if (arr.join('').length > currentLongest.length) currentLongest = arr.join('');
+//         arr = [];
+//         let j = i - 1;
+//         while (s[j] !== s[i]) {
+//           arr.push(s[j]);
+//           j--;
+//         }
+//         arr.reverse()
+//       }
+//       arr.push(s[i]);
+//       if (arr.join('').length > currentLongest.length) currentLongest = arr.join('');
+//     }
+//     return currentLongest.length;
+// };
+
+// console.log(lengthOfLongestSubstring("dvdf"));
+
+// LEETCODE - Longest Common Prefix
+
+var longestCommonPrefix = function(strs) {
+    // iterate through 
+    // Check each element
+    let prefix = "";
+    let spliceEnd = 1;
+    for (i = 0; i < strs.length; i++) {
+      prefix = strs[i].splice(0, spliceEnd);
+      
+    }
+};
+
+longestCommonPrefix(["flower","flow","flight"]);
